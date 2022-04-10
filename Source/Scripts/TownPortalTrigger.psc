@@ -18,7 +18,7 @@ EndFunction
 State Active
 
     Event OnBeginState()
-        if PlayerRef.GetDistance(self) < 128.0
+        if PlayerRef.GetDistance(self) < 160.0
             Portal.Activate(PlayerRef)
         endif
     EndEvent

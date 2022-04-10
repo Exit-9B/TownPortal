@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(
     TownPortal
-    VERSION 1.0.0
+    VERSION 1.1.0
     LANGUAGES NONE
 )
 
@@ -48,7 +48,10 @@ bethesda_archive(
     "BSA"
     OUTPUT "TownPortal.bsa"
     FORMAT SSE
-    FILES ${${PROJECT_NAME}_OUTPUT}
+    FILES
+        ${${PROJECT_NAME}_OUTPUT}
+        "${CMAKE_CURRENT_SOURCE_DIR}/Meshes/TownPortal/MAGINVTownPortal.nif"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Meshes/TownPortal/TownPortalHandFX.nif"
 )
 
 add_dependencies("BSA" "${PROJECT_NAME}")
@@ -61,7 +64,6 @@ install(
 install(
     FILES ${${PROEJCT_NAME}_OUTPUT}
     DESTINATION "Scripts"
-    COMPONENT Scripts
 )
 
 install(

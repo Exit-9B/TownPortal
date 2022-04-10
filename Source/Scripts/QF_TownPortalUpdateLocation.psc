@@ -37,7 +37,7 @@ Function Fragment_0()
 ;BEGIN CODE
 Debug.Trace("Town Portal: Update Location")
 
-Utility.Wait(2)
+Utility.Wait(2.0)
 
 ObjectReference mapMarker = Alias_MapMarker.GetReference()
 if mapMarker != None && mapMarker.IsMapMarkerVisible() && mapMarker.CanFastTravelToMarker()
