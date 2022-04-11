@@ -2,6 +2,16 @@
 ;NEXT FRAGMENT INDEX 1
 Scriptname QF_TownPortalUpdateLocation Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY Town
+;ALIAS PROPERTY TYPE LocationAlias
+LocationAlias Property Alias_Town Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY VisibleMapMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_VisibleMapMarker Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY CenterMarker
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_CenterMarker Auto
@@ -12,19 +22,9 @@ ReferenceAlias Property Alias_CenterMarker Auto
 ReferenceAlias Property Alias_MapMarkerRefType Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Town
-;ALIAS PROPERTY TYPE LocationAlias
-LocationAlias Property Alias_Town Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CWMapMarkerRefType
+;BEGIN ALIAS PROPERTY CityMapMarker
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CWMapMarkerRefType Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY VisibleMapMarker
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_VisibleMapMarker Auto
+ReferenceAlias Property Alias_CityMapMarker Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY MapMarker
@@ -36,8 +36,6 @@ ReferenceAlias Property Alias_MapMarker Auto
 Function Fragment_0()
 ;BEGIN CODE
 Debug.Trace("Town Portal: Update Location")
-
-Utility.Wait(2.0)
 
 ObjectReference mapMarker = Alias_MapMarker.GetReference()
 if mapMarker != None && mapMarker.IsMapMarkerVisible() && mapMarker.CanFastTravelToMarker()
