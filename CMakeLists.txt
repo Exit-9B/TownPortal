@@ -62,8 +62,10 @@ install(
 )
 
 install(
-    FILES ${${PROEJCT_NAME}_OUTPUT}
+    FILES ${${PROJECT_NAME}_OUTPUT}
     DESTINATION "Scripts"
+    COMPONENT Scripts
+    EXCLUDE_FROM_ALL
 )
 
 install(
