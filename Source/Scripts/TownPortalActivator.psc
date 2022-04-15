@@ -9,6 +9,9 @@ ObjectReference Property LightRef Auto
 TownPortalTrigger Property TriggerRef Auto
 int Property TargetStage Auto
 
+ReferenceAlias Property Alias_Marker Auto
+float Property Offset Auto
+
 Function SetInactive()
     GotoState("Inactive")
     TriggerRef.GotoState("Inactive")
@@ -23,6 +26,12 @@ Function Destroy()
 EndFunction
 
 Event OnInit()
+    if Alias_Marker != None && Offset != 0.0
+        ObjectReference marker = Alias_Marker.GetReference()
+        float angleZ = marker.GetAngleZ()
+        self.MoveTo(marker, Offset * Math.Sin(angleZ), Offset * Math.Cos(angleZ), 0.0)
+    endif
+
     TriggerRef = self.PlaceAtMe(TriggerBase) as TownPortalTrigger
 EndEvent
 

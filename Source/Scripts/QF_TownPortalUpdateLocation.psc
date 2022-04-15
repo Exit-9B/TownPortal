@@ -39,7 +39,7 @@ Debug.Trace("Town Portal: Update Location")
 
 ObjectReference mapMarker = Alias_MapMarker.GetReference()
 if mapMarker != None && mapMarker.IsMapMarkerVisible() && mapMarker.CanFastTravelToMarker()
-    MainQuest_TargetMarker.ForceRefTo(mapMarker)
+    MainQuest_TargetMarker.ForceRefTo(mapMarker.GetLinkedRef())
 else
     TownPortalDiscoveryKeyword.SendStoryEvent(Alias_Town.GetLocation())
 endif
